@@ -18,14 +18,34 @@ int tabuleiro[10][10];
 
  
   // Posicionando um navio horizontal de 3 partes 
-  int horizontalNavio = 3;
-  int verticalNavio = 5;
+  int horizontalNavio = 4;
+  int verticalNavio = 2;
 
    // Garante que o navio cabe no tabuleiro
 
    for(int i = 0; i < 3; i++){
     tabuleiro[horizontalNavio][verticalNavio + i] = 3; 
    }
+    //    Navio Vertical 3 partes
+
+    int linhaVertical = 6;
+    int colunaVertical = 3;
+    for(int i = 0; i < 3; i++){
+        tabuleiro[linhaVertical + i][colunaVertical] = 3;
+    }
+
+    //  Navio Diagonal Principal 3 partes
+    // começa em (0,0), (1,1), (2,2)
+    for (int i = 0; i < 3; i++){
+        tabuleiro[i][i] = 3;
+    }
+     //  Navio Diagonal secundária 3 partes
+     // começa em (0,9), (1,8), (2,7)
+    for (int i = 0; i < 3; i++){
+        tabuleiro[i][linha -1 -i] = 3;
+       
+    }
+    
 
     // Cabeçalho das colunas (A a J)
     printf("    ");
@@ -47,13 +67,7 @@ int tabuleiro[10][10];
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
     // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
-
-    // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
-
+    // Sugestão: Exiba o tabuleiro completo:
     // Exemplos de exibição das habilidades:
     // Exemplo para habilidade em cone:
     // 0 0 1 0 0
