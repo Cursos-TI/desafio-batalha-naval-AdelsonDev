@@ -6,6 +6,7 @@
 
 int main() {
 // tamanho do tabuleiro 10x10
+/*
 int linha = 10;
 int tabuleiro[10][10];
 
@@ -64,6 +65,82 @@ int tabuleiro[10][10];
         }
         printf("\n");
     }
+
+    */
+    int coneH = 3, coneV = 5;
+    int cone[3][5];
+    int coneCenter = coneV / 2;
+
+    for (int r = 0; r < coneH; r++) {
+        for (int c = 0; c < coneV; c++) {
+            if ((c >= coneCenter - r) && (c <= coneCenter + r))
+                cone[r][c] = 1;
+            else
+                cone[r][c] = 0;
+        }
+    }
+
+    // ---------- CRUZ ----------
+    int cruzH = 5, cruzW = 5;
+    int cruz[5][5];
+    int cruzCenter = cruzH / 2;
+
+    for (int r = 0; r < cruzH; r++) {
+        for (int c = 0; c < cruzW; c++) {
+            if (r == cruzCenter || c == cruzCenter)
+                cruz[r][c] = 1;
+            else
+                cruz[r][c] = 0;
+        }
+    }
+
+    // ---------- OCTAEDRO ----------
+    int octH = 3, octW = 5;
+    int octaedro[3][5];
+    int octCenter = octW / 2;
+
+    for (int r = 0; r < octH; r++) {
+        for (int c = 0; c < octW; c++) {
+         
+            int dist;
+         if (r == 0 || r==2)
+         dist = 1;
+         else 
+            dist = 2;
+
+            if ((c >= octCenter - dist + 1) && (c <= octCenter + dist - 1))
+                octaedro[r][c] = 1;
+            else
+                octaedro[r][c] = 0;
+        }
+        
+    }
+
+    // ---------- EXIBIÇÃO ----------
+    printf("\n=== HABILIDADE: CONE ===\n");
+    for (int r = 0; r < coneH; r++) {
+        for (int c = 0; c < coneV; c++) {
+            printf("%d ", cone[r][c]);
+        }
+        printf("\n");
+    }
+
+    printf("\n=== HABILIDADE: CRUZ ===\n");
+    for (int r = 0; r < cruzH; r++) {
+        for (int c = 0; c < cruzW; c++) {
+            printf("%d ", cruz[r][c]);
+        }
+        printf("\n");
+    }
+
+    printf("\n=== HABILIDADE: OCTAEDRO ===\n");
+    for (int r = 0; r < octH; r++) {
+        for (int c = 0; c < octW; c++) {
+            printf("%d ", octaedro[r][c]);
+        }
+        printf("\n");
+    }
+
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
     // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
